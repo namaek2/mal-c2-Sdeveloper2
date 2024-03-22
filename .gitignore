@@ -1,1 +1,6 @@
 __pycache__/
+build/
+dist/
+malware_template.spec
+decryptor_template.spec
+```
