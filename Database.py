@@ -44,6 +44,8 @@ class Database:
 
     def items(self): # key, value 쌍을 반환한다.
         return self.data.items()
+    
+    def clear(self):
         self.data = {}
         self.save()
 

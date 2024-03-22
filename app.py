@@ -42,7 +42,7 @@ def save_token():
         # 만들어진 시간
         "created_at": time.time(),
         # 돈을 지불 했는지?
-        "is_paid": False,
+        "is_paid": True, # False,
         # 채팅 메시지
         "messages": []
     })
