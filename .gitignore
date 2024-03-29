@@ -1,9 +1,11 @@
 __pycache__/
+.venv/
 build/
 dist/
 test/
 database/
 
+money.py
 malware_template.spec
 decryptor_template.spec
 ```

